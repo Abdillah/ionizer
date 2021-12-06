@@ -1,0 +1,10 @@
+#!/bin/env ion
+# vte.ion – keep directory of last opened tab
+
+# Setup Ion dir
+let XDG_STATE_DIR = $or($XDG_STATE_DIR "~/.local/state");
+let iondir = $XDG_STATE_DIR/ion/;
+mkdir -p $iondir;
+
+let lastdir = $or($(cat $XDG_STATE_DIR/ion/lastdir) $HOME);
+cd $lastdir;
